@@ -57,6 +57,53 @@ nav {
     display: flex;
     align-items: center;
     height: 90px;
+    position: relative;
+    z-index: 50;
+    transition: background-color 0.3s ease;
+}
+
+nav.nav-scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--netflix-black);
+    padding: 0 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.main input.input-error {
+    border: 1px solid var(--netflix-red);
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+.email-msg {
+    color: var(--netflix-red);
+    font-size: 13px;
+    margin-top: -10px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.secImg video {
+    cursor: pointer;
 }
 
 nav .logo {
@@ -149,6 +196,12 @@ nav select {
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-red:disabled {
+    opacity: 0.7;
+    cursor: default;
 }
 
 .btn-red-sm {
@@ -427,3 +480,4 @@ footer .service-code {
     flex-direction: column;
     gap: 23px;
 }
+
